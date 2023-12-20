@@ -1,0 +1,73 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.poly{
+    cursor: pointer;
+    fill-opacity: 0.5;
+    stroke-opacity: 0.8;
+}
+
+#modal{
+    height: 80%;
+    width: 50%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+#modal:focus-visible{
+    outline: none;
+}
+
+.modal-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 10px 20px; */
+}
+
+#boton-cerrar{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1000;
+}
+
+.boton-zoom{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 3em;
+    color: #000;
+    position: fixed;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+}
+
+.boton-zoom-in{
+    top: 10px;
+    right: 10px;
+}
+
+.boton-zoom-out{
+    top: 50px;
+    right: 10px;
+}

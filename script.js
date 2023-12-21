@@ -28,6 +28,10 @@ function crearMapa(data, container_selector){
         background-repeat: no-repeat;
         background-size: contain;`
 
+    mapa.addEventListener("mousedown", (e) => {
+        console.log("map")
+    })
+
     wrapper.appendChild(mapa)
 
     //botones zoom
@@ -105,9 +109,11 @@ function crearMapa(data, container_selector){
         polyElement.setAttribute("points", poly["points"])
 
         // Click event
-        // polyElement.addEventListener("click", () => {
-        //     // Hacer algo
-        // })
+        polyElement.addEventListener("mousedown", (e) => {
+            // Hacer algo
+            e.stopImmediatePropagation()
+            console.log(poly["tooltip"])
+        })
     
         polyElement.addEventListener("mousemove", (e) => {
             tooltip.innerHTML= poly["tooltip"]

@@ -54,11 +54,23 @@ function crearMapa(data, container_selector){
 
     wrapper.appendChild(mapa)
 
+    // tooltip
+    const tooltip= document.createElement("span")
+    tooltip.classList.add("tooltip")
+    container.appendChild(tooltip)
+
     //botones zoom
     const botonZoomIn= document.createElement("button")
     botonZoomIn.innerHTML= '<i class="fa-solid fa-magnifying-glass-plus"></i>'
     botonZoomIn.classList.add("boton-zoom")
     botonZoomIn.classList.add("boton-zoom-in")
+    botonZoomIn.addEventListener("mouseover", () => {
+        tooltip.innerHTML= "Acercar"
+        tooltip.style=`visibility: visible; top: 55px; right: 0px;`
+    })
+    botonZoomIn.addEventListener("mouseout", () => {
+        tooltip.style=`visibility: hidden;`
+    })
     botonZoomIn.addEventListener("click", () => {
         mapWidth+=20
         mapa.style=`max-width: ${mapWidth}%; min-width: ${mapWidth}%;
@@ -75,6 +87,13 @@ function crearMapa(data, container_selector){
     botonZoomOut.innerHTML= '<i class="fa-solid fa-magnifying-glass-minus"></i>'
     botonZoomOut.classList.add("boton-zoom")
     botonZoomOut.classList.add("boton-zoom-out")
+    botonZoomOut.addEventListener("mouseover", () => {
+        tooltip.innerHTML= "Alejar"
+        tooltip.style=`visibility: visible; top: 55px; right: 45px;`
+    })
+    botonZoomOut.addEventListener("mouseout", () => {
+        tooltip.style=`visibility: hidden;`
+    })
     botonZoomOut.addEventListener("click", () => {
         mapWidth-=20
         mapa.style=`max-width: ${mapWidth}%; min-width: ${mapWidth}%;
@@ -91,6 +110,13 @@ function crearMapa(data, container_selector){
     botonZoomReset.innerHTML= '<i class="fa-solid fa-arrows-to-circle"></i>'
     botonZoomReset.classList.add("boton-zoom")
     botonZoomReset.classList.add("boton-zoom-reset")
+    botonZoomReset.addEventListener("mouseover", () => {
+        tooltip.innerHTML= "Restaurar zoom"
+        tooltip.style=`visibility: visible; top: 55px; right: 90px;`
+    })
+    botonZoomReset.addEventListener("mouseout", () => {
+        tooltip.style=`visibility: hidden;`
+    })
     botonZoomReset.addEventListener("click", () => {
         mapWidth=90
         mapa.style=`max-width: ${mapWidth}%; min-width: ${mapWidth}%;
@@ -110,11 +136,6 @@ function crearMapa(data, container_selector){
     svg.style=`width: 100%;
         height: 100%;`
     mapa.appendChild(svg)
-
-    // tooltip
-    const tooltip= document.createElement("span")
-    tooltip.classList.add("tooltip")
-    container.appendChild(tooltip)
 
     // poligonos
     data.polygons.forEach(poly => {

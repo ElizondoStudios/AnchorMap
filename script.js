@@ -36,7 +36,7 @@ function crearMapa(data, container_selector){
     botonZoomIn.classList.add("boton-zoom")
     botonZoomIn.classList.add("boton-zoom-in")
     botonZoomIn.addEventListener("click", () => {
-        mapWidth+=10
+        mapWidth+=20
         mapa.style=`max-width: ${mapWidth}%; min-width: ${mapWidth}%;
             height: auto;
             background-image: url('${data.background_image}');
@@ -52,7 +52,7 @@ function crearMapa(data, container_selector){
     botonZoomOut.classList.add("boton-zoom")
     botonZoomOut.classList.add("boton-zoom-out")
     botonZoomOut.addEventListener("click", () => {
-        mapWidth-=10
+        mapWidth-=20
         mapa.style=`max-width: ${mapWidth}%; min-width: ${mapWidth}%;
             height: auto;
             background-image: url('${data.background_image}');

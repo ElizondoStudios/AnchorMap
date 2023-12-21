@@ -28,8 +28,28 @@ function crearMapa(data, container_selector){
         background-repeat: no-repeat;
         background-size: contain;`
 
+    let isDown= false
+
+    mapa.addEventListener("mousemove", (e) => {
+        if(isDown){
+            wrapper.scrollLeft-= e.movementX
+            wrapper.scrollTop-= e.movementY
+        }
+    })
+
     mapa.addEventListener("mousedown", (e) => {
-        console.log("map")
+        isDown= true
+        mapa.style.cursor= "grabbing"
+    })
+
+    mapa.addEventListener("mouseup", (e) => {
+        isDown= false
+        mapa.style.cursor= "grab"
+    })
+
+    mapa.addEventListener("mouseleave", (e) => {
+        isDown= false
+        mapa.style.cursor= "grab"
     })
 
     wrapper.appendChild(mapa)
@@ -110,9 +130,8 @@ function crearMapa(data, container_selector){
 
         // Click event
         polyElement.addEventListener("mousedown", (e) => {
-            // Hacer algo
             e.stopImmediatePropagation()
-            console.log(poly["tooltip"])
+            // Hacer algo
         })
     
         polyElement.addEventListener("mousemove", (e) => {
